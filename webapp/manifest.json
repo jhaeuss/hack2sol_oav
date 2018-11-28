@@ -91,7 +91,7 @@
 			"targets": {
 				"Home": {
 					"viewType": "XML",
-					"transition": "flip",
+					"transition": "slide",
 					"clearAggregation": true,
 					"viewName": "Home",
 					"viewLevel": 1

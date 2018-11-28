@@ -1,36 +1,46 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
+sap.ui.define([
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel",
+	'sap/m/MessageToast'
+], function (Controller, JSONModel, MessageToast) {
 	"use strict";
 	return Controller.extend("com.wieland.oav.controller.UserFreigabe", {
-		/**
-		 * Called when a controller is instantiated and its View controls (if available) are already created.
-		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-		 * @memberOf com.wieland.oav.view.UserFreigabe
-		 */ //	onInit: function() {
-		//
-		//	},
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf com.wieland.oav.view.UserFreigabe
-		 */ //	onBeforeRendering: function() {
-		//
-		//	},
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf com.wieland.oav.view.UserFreigabe
-		 */ //	onAfterRendering: function() {
-		//
-		//	},
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf com.wieland.oav.view.UserFreigabe
-		 */ //	onExit: function() {
-		//
-		//	}
-		/**
-		 *@memberOf com.wieland.oav.controller.UserFreigabe
-		 */
+		onInit: function () {
+			var oModel = new JSONModel("/IAS/scim/Users");
+			this.getView().setModel(oModel, "UsersModel");
+		},
+		formatMail: function (emails) {
+			if (emails && emails.length > 0) {
+				return emails[0].value;
+			}
+			return "no mail address";
+		},
+		isOAVUser: function(groups) {
+			if (groups && groups.length > 0) {
+				var result = groups.filter(group => group.value == "OAV_User");
+				return !!result;
+			}
+			return false;	
+		},
+		calcPressedForFreigabeButton: function (groups) {
+			return this.isOAVUser(groups);
+		},
+		calcTextForFreigabeButton: function (groups) {
+			if (this.isOAVUser(groups)) {
+				return "Freigabe zurücknehmen";
+			}
+			return "Freigeben";
+		},
+		onPress: function (evt) {
+			var userID = evt.getSource().data("userID");
+			if (evt.getSource().getPressed()) {
+				evt.getSource().setText("Freigabe zurücknehmen");
+				MessageToast.show("User wurde freigegeben und per Mail informiert.");
+			} else {
+				evt.getSource().setText("Freigeben");
+				MessageToast.show("Dem User wurde die Freigabe entzogen.");
+			}
+		},
 		action: function (oEvent) {
 			var that = this;
 			var actionParameters = JSON.parse(oEvent.getSource().data("wiring").replace(/'/g, "\""));

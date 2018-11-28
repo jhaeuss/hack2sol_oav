@@ -1,8 +1,42 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.wieland.oav.controller.UserFreigabe">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="com.wieland.oav.controller.UserFreigabe">
 	<App>
 		<pages>
-			<Page title="Neuregistrierungen..." showNavButton="true" navButtonPress="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'Home'\}\}\}">
-				<content/>
+			<Page xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" title="Neuregistrierungen..." showNavButton="true" navButtonPress="action" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'Home'\}\}\}">
+				<content>
+					<Table id="usersList" items="{ path:'UsersModel>/Resources', filters:[{ path: 'displayName', operator: 'NE', value1: '' }] }" alternateRowColors="true">
+						<columns>
+							<Column>
+								<header>
+									<Label text="Name"/>
+								</header>
+							</Column>
+							<Column>
+								<header>
+									<Label text="eMail"/>
+								</header>
+							</Column>
+							<Column>
+								<header>
+									<Label text="Freigabe/zurücknehmen"/>
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{path:'UsersModel>displayName'}"/>
+									<Text text="{parts: ['UsersModel>emails'], formatter: '.formatMail'}"/>
+									<ToggleButton 
+										text="{parts: ['UsersModel>groups'], formatter: '.calcTextForFreigabeButton'}" 
+										pressed="{parts: ['UsersModel>groups'], formatter: '.calcPressedForFreigabeButton'}"
+										press="onPress"
+										app:userID="{path:'UsersModel>id'}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
 			</Page>
 		</pages>
 	</App>
