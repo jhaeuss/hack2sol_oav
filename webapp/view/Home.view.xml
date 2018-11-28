@@ -1,0 +1,23 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.wieland.oav.controller.Home">
+	<App id="idAppControl">
+		<pages>
+			<Page title="wieland Online-Avisierung">
+				<content>
+					<VBox direction="Column" id="vbox0" justifyContent="Center" width="100%">
+						<items>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Neuregistrierungen" subheader="Freigabe neuer User..." press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'press':\{'navigation':\{'routeName':'UserFreigabe'\}\}\}">
+							<tileContent>
+							    <TileContent id="content2">
+							    <content>
+							        <sap.ui.core:Icon src="sap-icon://account" size="2em" xmlns:sap.ui.core="sap.ui.core" id="icon0"/>
+							    </content>
+							    </TileContent>
+							</tileContent>
+							</GenericTile>
+						</items>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

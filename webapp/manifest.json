@@ -2,7 +2,7 @@
 	"_version": "1.1.0",
 	"sap.app": {
 		"_version": "1.1.0",
-		"id": "wielandRegistrationSample",
+		"id": "wielandOAV",
 		"type": "application",
 		"i18n": "i18n/i18n_de.properties",
 		"applicationVersion": {
@@ -43,15 +43,12 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",
 		"rootView": {
-			"viewName": "wielandRegistrationSample.view.View1",
+			"viewName": "com.wieland.oav.view.Home",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -70,7 +67,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "wielandRegistrationSample.i18n.i18n_de"
+					"bundleName": "com.wieland.oav.i18n.i18n_de"
 				}
 			},
 			"": {
@@ -78,29 +75,43 @@
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "wielandRegistrationSample.view",
+				"viewPath": "com.wieland.oav.view",
 				"controlAggregation": "pages",
 				"controlId": "idAppControl"
 			},
 			"targets": {
-				"TargetView1": {
+				"Home": {
 					"viewType": "XML",
-					"transition": "slide",
+					"transition": "flip",
 					"clearAggregation": true,
-					"viewName": "View1"
+					"viewName": "Home",
+					"viewLevel": 1
+				},
+				"UserFreigabe": {
+					"viewType": "XML",
+					"viewName": "UserFreigabe",
+					"viewLevel": 2,
+					"transition": "slide"
 				}
-			}
+			},
+			"routes": [{
+				"name": "UserFreigabe",
+				"pattern": "UserFreigabe",
+				"target": ["UserFreigabe"]
+			}, {
+				"name": "Home",
+				"pattern": "Home",
+				"target": ["Home"]
+			}]
 		}
 	},
 	"sap.platform.hcp": {

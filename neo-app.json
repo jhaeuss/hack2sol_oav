@@ -20,6 +20,13 @@
         "version": "1.60.1"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+    	"path": "/IAS",
+    	"target": {
+    		"type": "destination",
+    		"name": "IAS"
+    	}
     }
   ],
   "sendWelcomeFileRedirect": true

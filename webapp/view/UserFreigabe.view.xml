@@ -1,0 +1,9 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.wieland.oav.controller.UserFreigabe">
+	<App>
+		<pages>
+			<Page title="Neuregistrierungen..." showNavButton="true" navButtonPress="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'Home'\}\}\}">
+				<content/>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
