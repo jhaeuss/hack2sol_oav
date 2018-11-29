@@ -100,7 +100,15 @@
 					"viewType": "XML",
 					"viewName": "UserFreigabe",
 					"viewLevel": 2,
+					"clearControlAggregation": false,
 					"transition": "slide"
+				},
+				"AvisierungAnmelden": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "OAV_Add",
+					"viewLevel": 2
 				}
 			},
 			"routes": [{
@@ -111,6 +119,10 @@
 				"name": "Home",
 				"pattern": "Home",
 				"target": ["Home"]
+			}, {
+				"name": "AvisierungAnmelden",
+				"pattern": "AvisierungAnmelden",
+				"target": ["AvisierungAnmelden"]
 			}]
 		}
 	},

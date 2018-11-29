@@ -7,17 +7,11 @@ xmlns:l="sap.ui.layout"
 xmlns="sap.m"
 height="100%"
 controllerName="com.wieland.oav.controller.OAV_Add">
-	<NavContainer id="wizardNavContainer">
+	<App>
 		<pages>
-			<Page id="wizardContentPage" showHeader="false">
+			<Page id="wizardContentPage" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" title="Online-Avisierung - Avisierung anmelden..." showNavButton="true" navButtonPress="navBack">
 				<content>
-					<OverflowToolbar>
-						<ToolbarSpacer/>
-						<FlexBox width="100%" id="flexbox1"/>
-						<Button text="Cancel" press="handleWizardCancel"/>
-						<content/>
-					</OverflowToolbar>
-					<Wizard id="CreateAvisierungWizard" complete="wizardCompletedHandler">
+					<Wizard id="CreateAvisierungWizard" complete="wizardCompletedHandler" finishButtonText="Avisierung anmelden...">
 						<WizardStep id="LieferdatenStep" title="Lieferdaten" validated="true">
 							<form:SimpleForm id="SimpleFormLieferdaten"
 								editable="true"
@@ -255,9 +249,10 @@ controllerName="com.wieland.oav.controller.OAV_Add">
 						</WizardStep>
 					</Wizard>
 				</content>
-				<footer>
-				</footer>
+				<headerContent>
+				    <Image src="/webapp/img/wieland.jpg" id="image2"/>
+				</headerContent>
 			</Page>
 		</pages>
-	</NavContainer>
+		</App>
 </mvc:View>

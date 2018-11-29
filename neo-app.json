@@ -27,6 +27,13 @@
     		"type": "destination",
     		"name": "IAS"
     	}
+    },
+    {
+        "path": "/services/userapi",
+        "target": {
+            "type": "service",
+            "name": "userapi"
+        }
     }
   ],
   "sendWelcomeFileRedirect": true

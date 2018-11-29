@@ -2,7 +2,7 @@
 xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="com.wieland.oav.controller.UserFreigabe">
 	<App>
 		<pages>
-			<Page xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" title="Neuregistrierungen..." showNavButton="true" navButtonPress="action" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'Home'\}\}\}">
+			<Page xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" title="Online-Avisierung - Neuregistrierungen..." showNavButton="true" navButtonPress="action" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'Home'\}\}\}">
 				<content>
 					<Table id="usersList" items="{ path:'UsersModel>/Resources', filters:[{ path: 'displayName', operator: 'NE', value1: '' }] }" alternateRowColors="true">
 						<columns>
@@ -43,6 +43,9 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" con
 						</items>
 					</Table>
 				</content>
+				<headerContent>
+			    <Image src="/webapp/img/wieland.jpg" id="image2"/>
+			</headerContent>
 			</Page>
 		</pages>
 	</App>
