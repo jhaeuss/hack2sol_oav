@@ -18,7 +18,7 @@
 								<tileContent>
 									<TileContent>
 										<content>
-											<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://block" size="2em"/>
+											<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://fridge" size="2em"/>
 										</content>
 									</TileContent>
 								</tileContent>
