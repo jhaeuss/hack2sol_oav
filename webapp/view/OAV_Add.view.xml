@@ -1,0 +1,263 @@
+<mvc:View xmlns:form="sap.ui.layout.form" 
+xmlns:core="sap.ui.core" 
+xmlns:u="sap.ui.unified" 
+xmlns:smartList="sap.ui.comp.smartlist"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:l="sap.ui.layout"
+xmlns="sap.m"
+height="100%"
+controllerName="test.Test.controller.main">
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page id="wizardContentPage" showHeader="false">
+				<content>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<FlexBox width="100%" id="flexbox1"/>
+						<Button text="Cancel" press="handleWizardCancel"/>
+						<content/>
+					</OverflowToolbar>
+					<Wizard id="CreateAvisierungWizard" complete="wizardCompletedHandler">
+						<WizardStep id="LieferdatenStep" title="Lieferdaten" validated="true">
+							<form:SimpleForm id="SimpleFormLieferdaten"
+								editable="true"
+								layout="ResponsiveGridLayout"
+								title=""
+								labelSpanXL="12"
+								labelSpanL="12"
+								labelSpanM="12"
+								labelSpanS="12"
+								adjustLabelSpan="false"
+								emptySpanXL="0"
+								emptySpanL="0"
+								emptySpanM="0"
+								emptySpanS="0"
+								columnsXL="4"
+								columnsL="4"
+								columnsM="4"
+								singleContainerFullSize="false" >
+								<form:content>
+			
+								<core:Title />
+								<Label text="Online-Avisierungsnummer" />
+								<Input id="input_oavNr" type="Text"  editable="false" />
+													
+								<Label text="Fahrzeugtyp*" />
+							    <Select
+									forceSelection="false"
+							        id="fahrzeugtypId"
+							        change="onFahrzeugtypChange"
+									items="{
+										path: 'Stammdaten>/FahrzeugTypSet'
+										,
+										filters : [
+                                        	{ path : 'GPARTNER',
+                                        	 operator : 'EQ', 
+                                        	 value1 : '999999'}
+                                        ]
+									
+									}">
+							    	<core:ListItem key="{Stammdaten>FAHRZEUGTYP}" text="{Stammdaten>FZTYPTEXT}"/>
+								
+								</Select>	
+								<Label text="Fahrzeugkennzeichen*" />
+								<Input valueStateText="Bitte Fahrzeugkennzeichen eingeben" 
+									id="input_Fahrzeugkennzeichen" type="Text" placeholder="Bitte Fahrzeugkennzeichen eingeben" value=""/>
+									
+								<Label id="label_Fahrzeugkennzeichen2" visible="false" text="Fahrzeugkennzeichen2*" />
+						        <Input valueStateText="Bitte Fahrzeugkennzeichen2 eingeben" 
+						            visible="false"
+									id="input_Fahrzeugkennzeichen2" type="Text" placeholder="Bitte Fahrzeugkennzeichen2 eingeben" value=""/>
+					
+								<core:Title />
+								<Label text="Spediteur" />
+								<Input valueStateText="Enter digits" 
+									valueState="{/productWeightState}" 
+									id="input_Spediteur" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value=""/>
+					
+				
+								<Label text="Ort Spedition*" />
+								<Input valueStateText="Enter digits" 
+									valueState="{/productWeightState}" 
+									id="input_Ort_Spediteur" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value=""/>
+					
+								<Label text="Subspedition" />
+								<Input valueStateText="Enter digits" 
+									valueState="{/productWeightState}" 
+									id="input_Subspedition" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value=""/>
+							<core:Title />	
+				<Label text="Lieferant/Kunde*" />
+						 <Input valueStateText="Enter digits" 
+				valueState="{/productWeightState}" 
+				id="input_LieferantKunde" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value=""/>
+					
+				<Label text="Ort Lieferant/Kunde*" />
+					 <Input valueStateText="Enter digits" 
+				valueState="{/productWeightState}" 
+				id="input_OrtLieferantKunde" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value=""/>
+					
+				<Label text="Land" />
+				<Select
+					forceSelection="false"
+				    id="landId"
+					items="{
+						path: 'Stammdaten>/LandSet'
+						
+					}">
+			    	<core:ListItem key="{Stammdaten>LAND}" text="{Stammdaten>LandTxt}"/>
+				</Select>					
+				<core:Title />
+				<Label text="Bemerkung" />
+				<TextArea value="" rows="8" />
+			    <CheckBox id="check_zollInfo" width="100%" text="Zollinfo T1">
+					<layoutData>
+						<l:GridData linebreak="true"
+				        	labelSpanXL="12"
+							labelSpanL="12"
+							labelSpanM="12"
+							labelSpanS="12"
+							
+							spanS="12"
+							spanM="12"
+							spanL="12"
+							spanXL="12"
+						/>
+					</layoutData>
+		    	</CheckBox>
+				<CheckBox id="check_rueckmeldung" text="Wieland Rückladung">
+			    <layoutData>
+						<l:GridData linebreak="true"
+							labelSpanXL="12"
+							labelSpanL="12"
+							labelSpanM="12"
+							labelSpanS="12"
+							
+							spanS="12"
+							spanM="12"
+							spanL="12"
+							spanXL="12"
+						/>
+				</layoutData>
+			</CheckBox>
+			
+			</form:content>
+		</form:SimpleForm>
+						    
+					            
+						    
+							</WizardStep>
+						<WizardStep id="LieferPositionStep" validated="true" title="Lieferpositionen" >
+								
+							<form:SimpleForm id="SimpleFormLieferposition"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Address"
+			labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="4"
+			columnsL="4"
+			columnsM="4"
+			singleContainerFullSize="false" >
+			<form:content>
+				
+					
+			
+				<core:Title />
+				<Label text="Materialgruppe" />
+			    <Select
+					forceSelection="false"
+					selectedKey="{/materialgruppeCollection/0/typId}"
+					items="{
+						path: '/materialgruppeCollection',
+						sorter: { path: 'Name' }
+					}">
+					<core:Item key="{typId}" text="{Name}" />
+				</Select>
+				<Label text="Material" />
+			    <Select
+					forceSelection="false"
+					selectedKey="{/MaterialCollection/0/typId}"
+					items="{
+						path: '/MaterialCollection',
+						sorter: { path: 'Name' }
+					}">
+					<core:Item key="{typId}" text="{Name}" />
+				</Select>
+				<Label text="Verpackung" />
+			    <Select
+					forceSelection="false"
+					selectedKey="{/VerpackungCollection/0/typId}"
+					items="{
+						path: '/VerpackungCollection',
+						sorter: { path: 'Name' }
+					}">
+					<core:Item key="{typId}" text="{Name}" />
+				</Select>
+				<Label text="Anzahl" />
+			    <Input valueStateText="Enter Anzahl" 
+				valueState="{/lieferposition/Anzahl}" 
+				id="input_Anzahl" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value="{/productWeight}"/>
+			    <Label text="Gewicht in t" />
+			    <Input valueStateText="Enter Gewicht in t" 
+				valueState="{/lieferposition/Gewicht}" 
+				id="input_Gewicht" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value="{/productWeight}"/>
+			   <Label text="Gewicht in t" />
+			    <Input valueStateText="Referenznummer" 
+				valueState="{/lieferposition/Referenznummer}" 
+				id="input_Referenznummer" liveChange="additionalInfoValidation" type="Number" placeholder="Enter digits" value="{/productWeight}"/>
+			   
+			</form:content>	
+			</form:SimpleForm> 
+							</WizardStep>
+						<WizardStep id="BlockAuswaehlenStep" validated="true" title="Block auswählen">
+							<l:VerticalLayout
+								width="100%"
+								class="gridWrapper">
+								<l:Grid containerQuery="true"
+									hSpacing="2"
+		                            defaultSpan="L6 M6 S10">
+		                            <l:content>
+									<l:VerticalLayout>
+										<core:HTML content='&lt;header class=&quot;sapMListHdr sapMListHdrText&quot; id=&quot;calendarTest-header&quot;&gt;Verfügbare Zeitblöcke&lt;/header&gt;'></core:HTML>
+										
+										<u:CalendarDateInterval
+											id="intervalCalendar"
+											width="500px"
+											days="10"
+											select="handleCalendarSelect"/>
+									</l:VerticalLayout>
+									<l:VerticalLayout width="100%">
+										<List
+										    width="100%"
+										    id="ListTest"
+										    mode="SingleSelect"
+											headerText="VerfügbareZeitblöcke"
+											items="{
+												path: 'Bloecke>/bloeckeCollection'
+											}" >
+											<StandardListItem
+												title="{Bloecke>Text}"
+												description="{Bloecke>State}"/>
+										</List>
+									</l:VerticalLayout>
+									</l:content>
+								</l:Grid>
+							</l:VerticalLayout>
+						</WizardStep>
+						<WizardStep id="fertigStep" validated="true" title="fertig">
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>
