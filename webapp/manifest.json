@@ -17,13 +17,13 @@
 			"version": "0.0.0"
 		},
 		"dataSources": {
-			"mainService": {
+			"ZVBMH_OAV_SRV": {
+				"uri": "/sap/opu/odata/sap/ZVBMH_OAV_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml"
-				},
-				"uri": "localService/metadata.xml"
+				}
 			}
 		}
 	},
@@ -43,10 +43,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",
@@ -73,16 +70,32 @@
 					"bundleName": "com.wieland.oav.i18n.i18n_de"
 				}
 			},
+			"Stammdaten": {
+				"uri": "/sap/opu/odata/sap/ZVBMH_OAV_SRV/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZVBMH_OAV_SRV",
+				"preload": true
+			},
 			"": {
-				"dataSource": "mainService"
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZVBMH_OAV_SRV",
+				"preload": true
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -116,29 +129,19 @@
 					"viewLevel": 2
 				}
 			},
-			"routes": [
-				{
-					"name": "UserFreigabe",
-					"pattern": "UserFreigabe",
-					"target": [
-						"UserFreigabe"
-					]
-				},
-				{
-					"name": "Home",
-					"pattern": "Home",
-					"target": [
-						"Home"
-					]
-				},
-				{
-					"name": "AvisierungAnmelden",
-					"pattern": "AvisierungAnmelden",
-					"target": [
-						"AvisierungAnmelden"
-					]
-				}
-			]
+			"routes": [{
+				"name": "UserFreigabe",
+				"pattern": "UserFreigabe",
+				"target": ["UserFreigabe"]
+			}, {
+				"name": "Home",
+				"pattern": "Home",
+				"target": ["Home"]
+			}, {
+				"name": "AvisierungAnmelden",
+				"pattern": "AvisierungAnmelden",
+				"target": ["AvisierungAnmelden"]
+			}]
 		}
 	},
 	"sap.platform.hcp": {

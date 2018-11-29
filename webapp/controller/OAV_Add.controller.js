@@ -72,7 +72,6 @@ sap.ui.define([
 	  	    aFilter.push(new Filter("Ladestelle", FilterOperator.EQ, "L2"));
 	  	    listB.filter(aFilter);                
 		}
-
     },
     navBack: function(event) {
     	var wizard = this.getView().byId("CreateAvisierungWizard");
