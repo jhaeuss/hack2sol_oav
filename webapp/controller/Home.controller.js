@@ -6,7 +6,7 @@ sap.ui.define([
 	"use strict";
 	return Controller.extend("com.wieland.oav.controller.Home", {
 		onInit: function() {
-			if (this.isUserInGroup("Administrator")) {
+			if (this.isUserInGroup("OAV_Admin")) {
 				var tile = this.getView().byId("NeuregistrierungenTile");
 				tile.setVisible(true);
 			}
@@ -17,7 +17,7 @@ sap.ui.define([
 		},
 		isUserInGroup: function(groupName) {
 			var user = this.getUser();
-			if (user.groups && user.groups.length > 0) {
+			if (user && user.groups && user.groups.length > 0) {
 				var result = user.groups.filter(group => group.value === groupName);
 				return !!result && result.length > 0;
 			}
