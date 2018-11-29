@@ -1,0 +1,17 @@
+{
+	"default": {
+		"_sap_ui_rta_Overlay_ActiveBG": "rgba(228,35,19,0.1)",
+		"_sap_ui_rta_Overlay_BaseBG": "#fff",
+		"_sap_ui_rta_Overlay_Border": "#e42313",
+		"_sap_ui_rta_Overlay_HoverBG": "rgba(0,0,0,0.108)",
+		"_sap_ui_rta_Overlay_ActiveHoverBG": "rgba(228,35,19,0.2)"
+	},
+	"scopes": {
+		"sapContrast": {
+			"_sap_ui_rta_Overlay_ActiveBG": "rgba(0,0,0,0.1)",
+			"_sap_ui_rta_Overlay_BaseBG": "#ebecec",
+			"_sap_ui_rta_Overlay_Border": "#000",
+			"_sap_ui_rta_Overlay_ActiveHoverBG": "rgba(0,0,0,0.2)"
+		}
+	}
+}

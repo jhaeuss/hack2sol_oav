@@ -1,0 +1,33 @@
+{
+	"default": {
+		"sapVizChartBackgroundColor": "#fff",
+		"sapVizChartErrorColor": "#333",
+		"sapVizChartTooltipBackgroundColor": "#fff",
+		"sapVizChartBackgroundStroke": "#d8d8d8",
+		"sapVizChartPieSectorStroke": "#fff",
+		"sapVizChartHoverColor": "#CCCCCC",
+		"sapVizChartHoverline": "#CCCCCC",
+		"sapVizChartHoverShadow": "#CCCCCC",
+		"sapVizChartHoverShadowMouseDown": "#808080",
+		"sapVizChartInnerWhisker": "#000000",
+		"sapVizChartTitleColor": "#333333",
+		"sapVizChartLabelColor": "#333333",
+		"sapVizChartAxisColor": "#333333",
+		"sapVizChartAxisGridlineColor": "#d8d8d8",
+		"sapVizChartTooltipBorderStroke": "#d8d8d8",
+		"sapVizChartHiddenTitleColor": "#a6a6a6",
+		"sapFieldBorderWidth": "1px",
+		"sapUiChartFocusWidth": "1px"
+	},
+	"scopes": {
+		"sapContrast": {
+			"sapVizChartBackgroundColor": "#ebecec",
+			"sapVizChartErrorColor": "#000",
+			"sapVizChartTooltipBackgroundColor": "#ebecec",
+			"sapVizChartPieSectorStroke": "#ebecec",
+			"sapVizChartTitleColor": "#000",
+			"sapVizChartLabelColor": "#000",
+			"sapVizChartAxisColor": "#000"
+		}
+	}
+}

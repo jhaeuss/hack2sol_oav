@@ -1,0 +1,57 @@
+{
+	"mVersionDependency": {
+		"Base.baseLib.sap_belize": "11.0.20",
+		"Base.baseLib": "11.0.20",
+		"Base": "11.0.20"
+	},
+	"sEntity": "Theme",
+	"sId": "wieland",
+	"sLabel": "Custom Belize",
+	"sVendor": "Wieland-Werke AG",
+	"oExtends": "Base.baseLib.sap_belize",
+	"aFiles": [
+		"base",
+		"preview",
+		"custom"
+	],
+	"aBundled": [
+		"wieland--Contrast"
+	],
+	"sTextDirections": "LTR",
+	"sType": "STANDARD",
+	"sThemability": "PUBLIC",
+	"mData": {
+		"mThemeMasterState": {
+			"mSourceInfo": {
+				"sCreated": "2018-10-11T07:39:51.899Z",
+				"sLastModified": "2018-11-06T13:32:51.575Z",
+				"aVersionHistory": [
+					{
+						"sDate": "2018-11-06T08:11:08.117Z",
+						"mVersion": {
+							"Base": "11.0.20",
+							"UR": "10.30.7.307232.0",
+							"UI5": "1.56.5"
+						}
+					},
+					{
+						"sDate": "2018-10-11T07:39:51.899Z",
+						"mVersion": {
+							"Base": "11.0.20",
+							"UR": "10.30.7.305344.0",
+							"UI5": "1.56.5"
+						}
+					}
+				]
+			},
+			"mBuildInfo": {
+				"sLastBuilt": "2018-11-06T13:33:00.257Z",
+				"mVersion": {
+					"Base": "11.0.20",
+					"UR": "10.30.7.307232.0",
+					"UI5": "1.56.5"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/core.sap_belize_plus": "1.56.5",
+		"UI5.sap/ui/core": "1.56.5",
+		"UI5": "1.56.5"
+	},
+	"sEntity": "Theme",
+	"sId": "wieland--Contrast",
+	"oExtends": "UI5.sap/ui/core.sap_belize_plus",
+	"aBuildFiles": [
+		"library",
+		"custom"
+	],
+	"aFiles": [
+		"library",
+		"global",
+		"custom"
+	],
+	"aBundled": [
+		"wieland"
+	],
+	"sBuildOptions": "SKIP",
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE"
+}

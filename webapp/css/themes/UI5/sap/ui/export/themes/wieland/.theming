@@ -1,0 +1,38 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/export.sap_belize": "1.56.5",
+		"UI5.sap/ui/export": "1.56.5",
+		"UI5": "1.56.5"
+	},
+	"sEntity": "Theme",
+	"sId": "wieland",
+	"sLabel": "Custom Belize",
+	"sVendor": "Wieland-Werke AG",
+	"oExtends": "UI5.sap/ui/export.sap_belize",
+	"aBundled": [
+		"wieland--Contrast"
+	],
+	"sTextDirections": "LTR",
+	"sType": "STANDARD",
+	"sThemability": "PUBLIC",
+	"mCssScopes": {
+		"library": {
+			"sEmbeddingMethod": "APPEND",
+			"aScopes": [
+				{
+					"sLabel": "Contrast",
+					"sSelector": "sapContrast",
+					"sThemeIdSuffix": "Contrast",
+					"sThemability": "PUBLIC",
+					"aThemabilityFilter": [
+						"Color"
+					],
+					"rExcludeSelector": "\\.sapContrastPlus\\W",
+					"sEmbeddedFile": "wieland--Contrast.library",
+					"sEmbeddedCompareFile": "library"
+				}
+			],
+			"sBaseFile": "library"
+		}
+	}
+}

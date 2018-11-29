@@ -1,0 +1,9 @@
+{
+	"default": {
+		"sapUiVbiDetailBG": "rgba(255, 255, 255, 0.9)",
+		"sapUiVbiDetailCloseHoverBG": "rgba(128, 150, 189, 1.0)"
+	},
+	"scopes": {
+		"sapContrast": {}
+	}
+}
