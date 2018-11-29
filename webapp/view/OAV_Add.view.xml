@@ -249,9 +249,11 @@ controllerName="com.wieland.oav.controller.OAV_Add">
 						</WizardStep>
 					</Wizard>
 				</content>
+				<!--
 				<headerContent>
 				    <Image src="/webapp/img/wieland.jpg" id="image2"/>
 				</headerContent>
+				-->
 			</Page>
 		</pages>
 		</App>

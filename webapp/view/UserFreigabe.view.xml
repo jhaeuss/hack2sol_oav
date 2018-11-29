@@ -43,9 +43,11 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" con
 						</items>
 					</Table>
 				</content>
+				<!--
 				<headerContent>
 			    <Image src="/webapp/img/wieland.jpg" id="image2"/>
 			</headerContent>
+			    -->
 			</Page>
 		</pages>
 	</App>

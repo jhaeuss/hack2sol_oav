@@ -26,9 +26,9 @@
 						</items>
 					</HBox>
 				</content>
-			<headerContent>
+			<!--<headerContent>
 			    <Image src="/webapp/img/wieland.jpg" id="image2"/>
-			</headerContent>
+			</headerContent>-->
 			</Page>
 		</pages>
 	</App>

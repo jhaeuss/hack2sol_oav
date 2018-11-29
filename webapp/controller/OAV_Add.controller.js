@@ -13,25 +13,92 @@ sap.ui.define([
 		var oModel = new JSONModel();
 		oModel.setData({
 					"bloeckeCollection":[
-						{ "Text": "06:00 - 10:00",
+						{ "Text": "06:00 - 68:00",
+						   "State":"1/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-03"
+	                    },
+	                    	{ "Text": "12:00 - 14:00",
+						   "State":"2/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-03"
+	                    },
+	                    { "Text": "14:00 - 16:00",
+						   "State":"3/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-03"
+	                    },
+	                    { "Text": "06:00 - 10:00",
+						   "State":"1/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-04"
+	                    },
+	                    { "Text": "12:00 - 14:00",
+						   "State":"2/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-04"
+	                    },
+	                    { "Text": "06:00 - 08:00",
+						   "State":"1/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-05"
+	                    },
+	                    { "Text": "08:00 - 10:00",
+						   "State":"1/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-05"
+	                    },
+	                    { "Text": "06:00 - 08:00",
+						   "State":"4/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-06"
+	                    },
+	                     { "Text": "08:00 - 10:00",
+						   "State":"1/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-06"
+	                    },
+	                    
+	                    { "Text": "06:00 - 10:00",
 						   "State":"5/5",
 						   "Ladestelle": "L2",
-						   "BlockDate": "2018-11-28"
+						   "BlockDate": "2018-11-30"
+	                    },
+	                    { "Text": "06:00 - 10:00",
+						   "State":"4/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-11-30"
+	                    },
+	                   
+	                    { "Text": "06:00 - 08:00",
+						   "State":"4/5",
+						   "Ladestelle": "L1",
+						   "BlockDate": "2018-11-30"
+	                    },
+	                    { "Text": "08:00 - 10:00",
+						   "State":"1/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-11-30"
 	                    },
 	                    { "Text": "10:00 - 12:00",
 						   "State":"5/5",
 						   "Ladestelle": "L2",
-						   "BlockDate": "2018-11-28"
+						   "BlockDate": "2018-11-30"
 	                    },
-	                    { "Text": "06:00 - 10:00",
-						   "State":"5/5",
-						   "Ladestelle": "L1",
-						   "BlockDate": "2018-11-28"
-	                    },
-	                    { "Text": "06:00 - 10:00",
-						   "State":"5/5",
+	                    { "Text": "06:00 - 08:00",
+						   "State":"3/5",
 						   "Ladestelle": "L2",
-						   "BlockDate": "2018-11-29"
+						   "BlockDate": "2018-12-07"
+	                    },
+	                    { "Text": "08:00 - 10:00",
+						   "State":"4/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-7"
+	                    },
+	                    { "Text": "10:00 - 12:00",
+						   "State":"2/5",
+						   "Ladestelle": "L2",
+						   "BlockDate": "2018-12-07"
 	                    }
 					]
   	    });
@@ -41,7 +108,7 @@ sap.ui.define([
   	    this.byId("intervalCalendar").setNonWorkingDays([5,6]); 
   	    var list = this.byId("ListTest");
   	    var listB = list.getBinding("items");
-  	    aFilter.push(new Filter("BlockDate", FilterOperator.EQ, "2018-11-28"));
+  	    aFilter.push(new Filter("BlockDate", FilterOperator.EQ, "2018-11-30"));
   	    aFilter.push(new Filter("Ladestelle", FilterOperator.EQ, "L2"));
   	    listB.filter(aFilter);
   	},
@@ -62,8 +129,8 @@ sap.ui.define([
     handleCalendarSelect: function(event){
     	var d = event.getSource().getSelectedDates()[0].getStartDate();
 		if(!!d){
-			var dateStr = d.getFullYear() + "-" + (d.getMonth() +1) + "-" + 	d.getDate();
-		  
+			var dateStr = d.getFullYear() + "-" + (d.getMonth() +1) + "-" + ((d.getDate() < 10)?"0" +d.getDate():d.getDate()); 
+		    console.log(dateStr);
   	        var aFilter = [];
 	  	    this.byId("intervalCalendar").setNonWorkingDays([0,1,2]); 
 	  	    var list = this.byId("ListTest");
