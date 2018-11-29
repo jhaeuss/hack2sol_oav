@@ -8,6 +8,11 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" con
 						<columns>
 							<Column>
 								<header>
+									<Label text="UserID"/>
+								</header>
+							</Column>
+							<Column>
+								<header>
 									<Label text="Name"/>
 								</header>
 							</Column>
@@ -25,13 +30,14 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" con
 						<items>
 							<ColumnListItem>
 								<cells>
+									<Text text="{path:'UsersModel>id'}"/>
 									<Text text="{path:'UsersModel>displayName'}"/>
 									<Text text="{parts: ['UsersModel>emails'], formatter: '.formatMail'}"/>
 									<ToggleButton 
-										text="{parts: ['UsersModel>groups'], formatter: '.calcTextForFreigabeButton'}" 
-										pressed="{parts: ['UsersModel>groups'], formatter: '.calcPressedForFreigabeButton'}"
+										text="{parts: ['UsersModel>'], formatter: '.calcTextForFreigabeButton'}" 
+										pressed="{parts: ['UsersModel>'], formatter: '.calcPressedForFreigabeButton'}"
 										press="onPress"
-										app:userID="{path:'UsersModel>id'}" />
+										app:user="{path:'UsersModel>'}" />
 								</cells>
 							</ColumnListItem>
 						</items>

@@ -15,31 +15,77 @@ sap.ui.define([
 			}
 			return "no mail address";
 		},
-		isOAVUser: function(groups) {
-			if (groups && groups.length > 0) {
-				var result = groups.filter(group => group.value == "OAV_User");
-				return !!result;
+		isOAVUser: function (user) {
+			if (user.groups && user.groups.length > 0) {
+				var result = user.groups.filter(group => group.value == "OAV_User");
+				return !!result && result.length > 0;
 			}
-			return false;	
+			return false;
 		},
-		calcPressedForFreigabeButton: function (groups) {
-			return this.isOAVUser(groups);
+		calcPressedForFreigabeButton: function (user) {
+			return this.isOAVUser(user);
 		},
-		calcTextForFreigabeButton: function (groups) {
-			if (this.isOAVUser(groups)) {
+		calcTextForFreigabeButton: function (user) {
+			if (this.isOAVUser(user)) {
 				return "Freigabe zurücknehmen";
 			}
 			return "Freigeben";
 		},
 		onPress: function (evt) {
-			var userID = evt.getSource().data("userID");
+			var user = evt.getSource().data("user");
 			if (evt.getSource().getPressed()) {
 				evt.getSource().setText("Freigabe zurücknehmen");
-				MessageToast.show("User wurde freigegeben und per Mail informiert.");
+				this.addUser2Group(user);
 			} else {
 				evt.getSource().setText("Freigeben");
-				MessageToast.show("Dem User wurde die Freigabe entzogen.");
+				this.removeUserFromGroup(user);
 			}
+		},
+		addUser2Group: function (user) {
+			if (!user.groups) {
+				user.groups = [];
+			}
+			user.groups.push({
+				"value": "OAV_User"
+			});
+			this.updateUser(user,
+				function (data, textStatus, jqXHR) {
+					MessageToast.show("User " + user.id + " wurde freigegeben.");
+				},
+				function (e) {
+					MessageToast.show("Fehler: User " + user.id + " konnte nicht freigegeben werden! (" + e + ")");
+				}
+			);
+		},
+		updateUser: function (user, successHandler, errorHandler) {
+			var myData = {
+				"id": user.id,
+				"groups": user.groups
+			};
+			var aData = jQuery.ajax({
+				type: "PUT",
+				contentType: "application/scim+json",
+				url: "/IAS/scim/Users/" + user.id,
+				dataType: "json",
+				data: JSON.stringify(myData),
+				success: successHandler,
+				error: errorHandler,
+				async: false
+			});
+		},
+		removeUserFromGroup: function (user) {
+			if (!user.groups) {
+				user.groups = [];
+			}
+			user.groups = user.groups.filter(group => group.value != "OAV_User");
+			this.updateUser(user,
+				function (data, textStatus, jqXHR) {
+					MessageToast.show("Dem User " + user.id + " wurde die Freigabe entzogen.");
+				},
+				function (e) {
+					MessageToast.show("Fehler: Dem User " + user.id + " konnte die Freigabe nicht entzogen werden! (" + e + ")");
+				}
+			);
 		},
 		action: function (oEvent) {
 			var that = this;
