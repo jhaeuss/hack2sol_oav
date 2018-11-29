@@ -6,7 +6,7 @@ xmlns:mvc="sap.ui.core.mvc"
 xmlns:l="sap.ui.layout"
 xmlns="sap.m"
 height="100%"
-controllerName="test.Test.controller.main">
+controllerName="com.wieland.oav.controller.OAV_Add">
 	<NavContainer id="wizardNavContainer">
 		<pages>
 			<Page id="wizardContentPage" showHeader="false">
