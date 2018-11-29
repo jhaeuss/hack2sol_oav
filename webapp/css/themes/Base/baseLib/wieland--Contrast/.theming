@@ -1,0 +1,47 @@
+{
+	"mVersionDependency": {
+		"Base.baseLib.sap_belize_plus": "11.0.20",
+		"Base.baseLib": "11.0.20",
+		"Base": "11.0.20"
+	},
+	"sEntity": "Theme",
+	"sId": "wieland--Contrast",
+	"oExtends": "Base.baseLib.sap_belize_plus",
+	"aFiles": [
+		"base",
+		"preview",
+		"custom"
+	],
+	"aBundled": [
+		"wieland"
+	],
+	"sBuildOptions": "SKIP",
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE",
+	"mData": {
+		"mThemeMasterState": {
+			"mSourceInfo": {
+				"sCreated": "2018-10-11T07:39:51.900Z",
+				"sLastModified": "2018-11-06T13:32:51.575Z",
+				"aVersionHistory": [
+					{
+						"sDate": "2018-11-06T08:11:08.117Z",
+						"mVersion": {
+							"Base": "11.0.20",
+							"UR": "10.30.7.307232.0",
+							"UI5": "1.56.5"
+						}
+					},
+					{
+						"sDate": "2018-10-11T07:39:51.900Z",
+						"mVersion": {
+							"Base": "11.0.20",
+							"UR": "10.30.7.305344.0",
+							"UI5": "1.56.5"
+						}
+					}
+				]
+			}
+		}
+	}
+}

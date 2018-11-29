@@ -1,0 +1,17 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/codeeditor.sap_belize_plus": "1.56.5",
+		"UI5.sap/ui/codeeditor": "1.56.5",
+		"UI5": "1.56.5"
+	},
+	"sEntity": "Theme",
+	"sId": "wieland--Contrast",
+	"sVendor": "Wieland-Werke AG",
+	"oExtends": "UI5.sap/ui/codeeditor.sap_belize_plus",
+	"aBundled": [
+		"wieland"
+	],
+	"sBuildOptions": "SKIP",
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE"
+}
